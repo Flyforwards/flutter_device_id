@@ -7,11 +7,11 @@ import 'flutter_device_id_platform_interface.dart';
 class MethodChannelFlutterDeviceId extends FlutterDeviceIdPlatform {
   /// The method channel used to interact with the native platform.
   @visibleForTesting
-  final methodChannel = const MethodChannel('flutter_device_id');
+  final methodChannel = const MethodChannel('plugins.flutter.io/flutter_device_id');
 
   @override
-  Future<String?> getPlatformVersion() async {
-    final version = await methodChannel.invokeMethod<String>('getPlatformVersion');
+  Future<String?> getDeviceId() async {
+    final version = await methodChannel.invokeMethod<String>('device_id');
     return version;
   }
 }

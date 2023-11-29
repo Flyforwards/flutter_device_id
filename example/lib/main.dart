@@ -16,7 +16,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String _platformVersion = 'Unknown';
+  String _deviceId = 'Unknown';
   final _flutterDeviceIdPlugin = FlutterDeviceId();
 
   @override
@@ -27,14 +27,13 @@ class _MyAppState extends State<MyApp> {
 
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> initPlatformState() async {
-    String platformVersion;
+    String deviceId;
     // Platform messages may fail, so we use a try/catch PlatformException.
     // We also handle the message potentially returning null.
     try {
-      platformVersion =
-          await _flutterDeviceIdPlugin.getPlatformVersion() ?? 'Unknown platform version';
+      deviceId = await _flutterDeviceIdPlugin.getDeviceId() ?? '';
     } on PlatformException {
-      platformVersion = 'Failed to get platform version.';
+      deviceId = 'Failed to get device id.';
     }
 
     // If the widget was removed from the tree while the asynchronous platform
@@ -43,7 +42,7 @@ class _MyAppState extends State<MyApp> {
     if (!mounted) return;
 
     setState(() {
-      _platformVersion = platformVersion;
+      _deviceId = deviceId;
     });
   }
 
@@ -55,7 +54,7 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('Running on: $_platformVersion\n'),
+          child: Text('Running on: $_deviceId\n'),
         ),
       ),
     );

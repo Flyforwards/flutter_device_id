@@ -19,11 +19,11 @@ void main() {
     expect(initialPlatform, isInstanceOf<MethodChannelFlutterDeviceId>());
   });
 
-  test('getPlatformVersion', () async {
+  test('getDeviceId', () async {
     FlutterDeviceId flutterDeviceIdPlugin = FlutterDeviceId();
     MockFlutterDeviceIdPlatform fakePlatform = MockFlutterDeviceIdPlatform();
     FlutterDeviceIdPlatform.instance = fakePlatform;
 
-    expect(await flutterDeviceIdPlugin.getPlatformVersion(), '42');
+    expect(await flutterDeviceIdPlugin.getDeviceId(), '42');
   });
 }
