@@ -24,6 +24,6 @@ abstract class FlutterDeviceIdPlatform extends PlatformInterface {
   }
 
   Future<String?> getDeviceId() {
-    throw UnimplementedError('platformVersion() has not been implemented.');
+    throw UnimplementedError('getDeviceId() has not been implemented.');
   }
 }
