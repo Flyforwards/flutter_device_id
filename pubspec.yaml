@@ -1,6 +1,6 @@
 name: flutter_device_id
 description: Get current  deviceId from within the Flutter application. Android(android_Id), IOS(IDFV)
-version: 1.0.0
+version: 1.0.1
 repository: https://github.com/Flyforwards/flutter_device_id.git
 issue_tracker: https://github.com/Flyforwards/flutter_device_id/issues
 
